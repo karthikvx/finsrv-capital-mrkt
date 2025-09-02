@@ -1,6 +1,6 @@
 # **Capital Markets Data Platform: Architecture & SRE Roadmap**
 
-## **1\. Executive Summary**
+## **1\. Summary**
 
 This document outlines a modern, scalable, and resilient data platform architecture for a capital markets firm. The design follows a federated, event-driven model to enable real-time analytics and support global business units. The architecture is complemented by a Site Reliability Engineering (SRE) framework focused on proactive monitoring, automation, and continuous improvement to ensure reliability and cost-efficiency.
 
