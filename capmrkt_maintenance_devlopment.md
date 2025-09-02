@@ -47,6 +47,25 @@ Site Reliability Engineers (SREs) are responsible for monitoring and alerting.
 #### **3\. Microservice and Infrastructure Maintenance**
 
 * **Dependency Updates**: Keeping Python and Java dependencies, including the Azure SDKs, up-to-date to patch security vulnerabilities and get new features.  
-* **CI/CD Pipeline Management**: Maintaining automated build, test, and deployment pipelines for all microservices using tools like Azure DevOps.  
+* **CI/CD Pipeline Management**: Maintaining automated build, test, and deployment pipelines for all microservices using tools like Azure DevOps.
+
+![ci/cd](./assets/cicd-pipeline.png)
+code snip
+```
+graph TD
+    A[Code Commit] --> B{Azure DevOps Pipeline Trigger};
+    B --> C["Build & Test (Maven)"];
+    C --> D[Scan for Vulnerabilities];
+    D --> E{Tests Pass?};
+    E -- Yes --> F[Containerize Java App];
+    E -- No --> G[Notify Developer];
+    F --> H[Push to Azure Container Registry];
+    H --> I[Deploy to Azure App Service];
+    I --> J[Run Integration Tests];
+    J --> K{Tests Pass?};
+    K -- Yes --> L[Production Deployment];
+    K -- No --> M[Rollback & Notify SRE];
+```
 * **Resiliency Testing**: Periodically performing chaos engineering tests to ensure the system gracefully handles failures, such as a microservice crash or a temporary outage of Event Hubs.
 
+![monitor](./assets/licensed-image.jpeg)
